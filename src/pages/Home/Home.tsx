@@ -2,10 +2,12 @@ import React from 'react'
 import './Home.css'
 import Navbar from '../../component/Navbar/Navbar'
 import Footer from '../../component/Footer/Footer'
+import TitleCards from '../../component/TitleCards/TitleCards'
 import hero_banner from '../../assets/hero_banner.jpg'
 import hero_title from '../../assets/hero_title.png'
 import play_icon from '../../assets/play_icon.png'
 import info_icon from '../../assets/info_icon.png'
+
 
 
 const Home = () => {
@@ -23,20 +25,20 @@ const Home = () => {
                     quo consequuntur deleniti esse!
                 </p>
                 <div className='flex gap-[10px] mb-[50px]'>
-                  <button className='bottom-0 outline-none p-[8px_20px] inline-flex items-center gap-[10px] text-black text-[15px] bg-white rounded-[4px] cursor-pointer font-semibold'>
+                  <button className='bottom-0 outline-none p-[8px_20px] inline-flex items-center gap-[10px] text-black text-[15px] bg-white hover:bg-[#ffffffbf] rounded-[4px] cursor-pointer font-semibold'>
                     <img src={play_icon}  alt=""  className='w-[25px]'/>
                     Play
                   </button >
-                  <button className='bottom-0 outline-0 p-[8px_20px] inline-flex items-center gap-[10px] text-[#fff] bg-[#6d6d6eb3] text-[15px] bg-white rounded-[4px] cursor-pointer font-semibold'>
+                  <button className='bottom-0 outline-0 p-[8px_20px] inline-flex items-center gap-[10px] text-[#fff] bg-[#6d6d6eb3] hover:bg-[#6d6d6e66] text-[15px]  rounded-[4px] cursor-pointer font-semibold'>
                     <img src={info_icon} alt="" className='w-[25px]'/>
                     More Info
                   </button>
                 </div>
+                <TitleCards />
 
             </div>
 
         </div>
-        <div></div>
         <Footer/>
 
     </div>
