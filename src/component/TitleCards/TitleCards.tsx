@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import './TitleCards.css'
 import card_data from '../../assets/cards/Cards_data'
 
-const TitleCards = () => {
+const TitleCards = ({title}:{title?:string}) => {
   const cardsRef = useRef<HTMLDivElement | null>(null);
 
   const handleCard = (event: WheelEvent) => {
@@ -28,7 +28,7 @@ const TitleCards = () => {
 
   return (
     <div className='mt-[50px] mb-[30px]'>
-      <h2 className='mb-[8px]'>Popular on Netflix</h2>
+      <h2 className='mb-[8px]'>{title?title:'Popular on Netflix'}</h2>
       <div className='flex gap-[10px] overflow-x-scroll card-list' > 
         {card_data.map((card , index) => {
           return <div className='card relative flex-none' ref={cardsRef} key={index}>
