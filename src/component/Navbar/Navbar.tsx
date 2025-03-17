@@ -5,10 +5,23 @@ import SearchIcon from '../../assets/search_icon.svg'
 import BellIcon from '../../assets/bell_icon.svg'
 import ProfileIcon from '../../assets/profile_img.png'
 import DropDownIcon from '../../assets/caret_icon.svg'
+import { useEffect, useRef } from 'react'
 
 const Navbar = () => {
+
+  const navbar = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    window.addEventListener('scroll' , ()=> {
+      if(window.scrollY > 80) {
+        navbar.current?.classList.add('nav-dark')
+      } else {
+        navbar.current?.classList.remove('nav-dark')
+      }
+    })
+  },[])
   return (
-    <div className='navbar w-full p-[20px_70px] flex justify-between fixed text-[14px] text-slate-100 z-10'  >
+    <div ref={navbar} className='navbar w-full p-[20px_70px] flex justify-between fixed text-[14px] text-slate-100 z-10'  >
       <div className='nav-left flex items-center gap-[50px]'>
         <img src={Logo} alt="LOGO" className='w-[90px]'/>
 

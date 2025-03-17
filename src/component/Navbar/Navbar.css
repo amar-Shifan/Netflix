@@ -10,3 +10,7 @@
 .navbarProfile:hover .dropDown{
     display: block;
 }
+
+.nav-dark{
+    background: #141414;
+}

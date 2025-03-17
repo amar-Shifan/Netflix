@@ -1,11 +1,23 @@
 import React, { useState } from 'react'
 import logo from '../../assets/logo.png'
 import './Login.css'
+import {login , signup} from '../../firebase'
 
 const Login = () => {
 
   const [signState , setSignState] = useState('Sign In');
+  const [name , setName] = useState('')
+  const [email , setEmail] = useState('')
+  const [password , setPassword] = useState('')
 
+  const user_auth = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if(signState == 'Sign In'){
+      await login({email , password})
+    } else {
+      await signup({name ,email , password})
+    }
+  }
 
   return (
     <div className="h-[100vh] login bg-cover bg-center p-[20px_8%]">
@@ -13,11 +25,15 @@ const Login = () => {
       <div className='w-[100%] max-w-[450px] bg-black bg-opacity-75 rounded-[4px] p-[60px] m-auto'>
         <h1 className='text-[32px] font-medium mb-[28px]'>{signState}</h1>
         <form >
-            {signState !== 'Sign In' ? <input type="text" placeholder='Your name' />  : <></> }
+            {signState !== 'Sign In' ? <input type="text" placeholder='Your name' value={name} onChange={(e) => setName(e.target.value)}/>  : <></> }
             
-            <input type="text" placeholder='Email' />
-            <input type="text" placeholder='Password' />
-            <button className='w-[100%] border-none outline-none p-[16px] bg-[#e50914] text-white rounded-[4px] text-[16px] font-medium mt-[20px] cursor-pointer'>
+            <input type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="text" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <button 
+              className='w-[100%] border-none outline-none p-[16px] bg-[#e50914] text-white rounded-[4px] text-[16px] font-medium mt-[20px] cursor-pointer'
+              onClick={user_auth}
+              type='submit'
+            >
               {signState}
             </button>
             <div className='flex items-center justify-between text-[#b3b3b3] text-[13px]'>
