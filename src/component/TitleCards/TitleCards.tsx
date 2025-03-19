@@ -16,7 +16,7 @@ const TitleCards = ({title , category}:{title?:string , category?:string}) => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: import.meta.env.FireBaseAuth
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZDI5N2MwYzA5ZGI0NmIzNGQwNzlmMzAzZTc2MjlhYyIsIm5iZiI6MTc0MjE5OTM2OS40MDUsInN1YiI6IjY3ZDdkYTQ5MzE2NzhjYzNmODAxOWQ3MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NHG3tVbH5fmO7UbQBeQgt8Pj3fveIfwSMZsUpRk49N4'
     }
   };
   
