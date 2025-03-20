@@ -13,39 +13,50 @@ import info_icon from '../../assets/info_icon.png'
 const Home = () => {
   return (
     <div>
-        <Navbar/>
+        <Navbar />
 
-        <div className="hero relative">
-            <img src={hero_banner} alt="" className='w-full  hero_banner'/>
-            <div className='absolute w-full pl-6 bottom-0'>
-                <img src={hero_title} alt="" className='w-[90%] max-w-[420px] mb-[30px]' />
-                <p className='max-w-[700px] text-[17px] mb-[20px]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Placeat ex explicabo porro a voluptas, omnis iusto natus
-                    accusantium! Placeat atque dolore porro vel totam nihil officiis
-                    quo consequuntur deleniti esse!
-                </p>
-                <div className='flex gap-[10px] mb-[50px]'>
-                  <button className='bottom-0 outline-none p-[8px_20px] inline-flex items-center gap-[10px] text-black text-[15px] bg-white hover:bg-[#ffffffbf] rounded-[4px] cursor-pointer font-semibold'>
-                    <img src={play_icon}  alt=""  className='w-[25px]'/>
-                    Play
-                  </button >
-                  <button className='bottom-0 outline-0 p-[8px_20px] inline-flex items-center gap-[10px] text-[#fff] bg-[#6d6d6eb3] hover:bg-[#6d6d6e66] text-[15px]  rounded-[4px] cursor-pointer font-semibold'>
-                    <img src={info_icon} alt="" className='w-[25px]'/>
-                    More Info
-                  </button>
-                </div>
-                <TitleCards />
+  {/* Hero Section */}
+  <div className="hero relative">
+    {/* Hero Banner */}
+    <img src={hero_banner} alt="Hero Banner" className="hero_banner w-full object-cover" />
 
-            </div>
-        </div>
-            <div className="more-cards pl-[6%]">
-              <TitleCards title={'Blockbuster Movie'} category='top_rated'/>
-              <TitleCards title={'Only on Netflix'} category='popular'/>
-              <TitleCards title={'Upcoming'} category='upcoming'/>
-              <TitleCards title={'Top Pics for you'} category='now_playing'/>
-            </div>
+    {/* Hero Content */}
+    <div className="absolute w-full px-6 bottom-0 text-white bg-gradient-to-t from-black/80 to-transparent p-6">
+      {/* Hero Title */}
+      <img src={hero_title} alt="Hero Title" className="w-[90%] max-w-[420px] mb-6" />
 
-            <Footer/>
+      {/* Description */}
+      <p className="max-w-[700px] text-lg md:text-[17px] mb-4 md:mb-6 leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ex explicabo porro a voluptas, 
+        omnis iusto natus accusantium! Placeat atque dolore porro vel totam nihil officiis quo consequuntur deleniti esse!
+      </p>
+
+      {/* Buttons */}
+      <div className="flex gap-4 mb-8">
+        <button className="flex items-center gap-3 px-5 py-2 text-black bg-white hover:bg-white/80 rounded-md font-semibold">
+          <img src={play_icon} alt="Play" className="w-6" />
+          Play
+        </button>
+        <button className="flex items-center gap-3 px-5 py-2 text-white bg-gray-600/80 hover:bg-gray-600/60 rounded-md font-semibold">
+          <img src={info_icon} alt="More Info" className="w-6" />
+          More Info
+        </button>
+      </div>
+
+      {/* Title Cards */}
+      <TitleCards />
+    </div>
+  </div>
+
+  {/* More Cards Section */}
+  <div className="more-cards px-6 md:px-[6%] space-y-8 md:space-y-12 mt-8">
+    <TitleCards title="Blockbuster Movies" category="top_rated" />
+    <TitleCards title="Only on Netflix" category="popular" />
+    <TitleCards title="Upcoming" category="upcoming" />
+    <TitleCards title="Top Picks for You" category="now_playing" />
+  </div>
+
+  <Footer />
 
     </div>
   )

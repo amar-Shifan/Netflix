@@ -6,25 +6,31 @@ import facebook_icon from '../../assets/facebook_icon.png'
 
 const Footer = () => {
   return (
-    <div className='p-[30px_4%] max-w-[1000px] m-[0_auto]'>
-      <div className="footerIcons flex gap-[20px] m-[40px_0]" >
-        <img src={facebook_icon} alt="" className='w-[30px]'/>
-        <img src={twitter_icon} alt="" className='w-[30px]'/>
-        <img src={instagram_icon} alt="" className='w-[30px]'/>
-        <img src={youtube_icon} alt="" className='w-[30px]'/>
+    <div className="p-8 max-w-[1000px] mx-auto text-gray-400 text-sm">
+      {/* Social Media Icons */}
+      <div className="footerIcons flex gap-5 justify-center md:justify-start my-6">
+        <img src={facebook_icon} alt="Facebook" className="w-8 cursor-pointer hover:opacity-75" />
+        <img src={twitter_icon} alt="Twitter" className="w-8 cursor-pointer hover:opacity-75" />
+        <img src={instagram_icon} alt="Instagram" className="w-8 cursor-pointer hover:opacity-75" />
+        <img src={youtube_icon} alt="YouTube" className="w-8 cursor-pointer hover:opacity-75" />
       </div>
-      <ul className='grid grid-cols-[auto_auto_auto_auto] gap-[15px] mb-[30px] list-none'>
-        <li>Audio Description</li>
-        <li>Audio Description</li>
-        <li>Audio Description</li>
-        <li>Audio Description</li>
-        <li>Audio Description</li>
-        <li>Audio Description</li>
-        <li>Audio Description</li>
-        <li>Contact Us</li>
+
+      {/* Footer Links */}
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 list-none text-center md:text-left">
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Corporate Information</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Legal Notices</a></li>
+        <li><a href="#">Contact Us</a></li>
       </ul>
-      <p className='text-gray-50 text-[14px]'>@©️ 1999-2025 , Inc</p>
+
+      {/* Copyright */}
+      <p className="text-center md:text-left text-gray-500">@© 1999-2025, Netflix Inc.</p>
     </div>
+
   )
 }
 

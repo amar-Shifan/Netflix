@@ -1,10 +1,11 @@
-import { initializeApp } from "firebase/app";
+import { FirebaseError, initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword,
          getAuth,
          signInWithEmailAndPassword, 
          signOut
     } from 'firebase/auth'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import { toast } from "react-toastify";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuYTYcQewpyPnLRm4CB5SML6Z-WTaNDYc",
@@ -37,7 +38,11 @@ const signup = async ({name , email , password}: signUpType) => {
         })
     } catch (error) {
         console.log('error in firebase' , error)
-        alert(error);
+        if (error instanceof FirebaseError) {
+            toast.error(error.code.split('/')[1].split('-').join(' '));
+        } else {
+            toast.error('An unknown error occurred');
+        }
     }
 }
 
@@ -51,7 +56,11 @@ const login = async ( { email, password }: loginType) => {
         await signInWithEmailAndPassword(auth , email , password)
     } catch (error) {
         console.log(error)
-        alert(error)
+        if (error instanceof FirebaseError) {
+            toast.error(error.code.split('/')[1].split('-').join(' '));
+        } else {
+            toast.error('An unknown error occurred');
+        }
     }
 }
 
@@ -60,6 +69,11 @@ const logout = async () => {
         await signOut(auth);
     } catch (error) {
         console.log(error)
+        if (error instanceof FirebaseError) {
+            toast.error(error.code.split('/')[1].split('-').join(' '));
+        } else {
+            toast.error('An unknown error occurred');
+        }
     }
 }
 

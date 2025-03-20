@@ -50,24 +50,31 @@ const TitleCards = ({title , category}:{title?:string , category?:string}) => {
   
 
   return (
-    <div className='mt-[50px] mb-[30px]'>
-      <h2 className='mb-[8px]'>{title?title:'Popular on Netflix'}</h2>
-      <div className='flex gap-[10px] overflow-x-scroll card-list' > 
-        {apiData.map((card , index) => {
-          return <Link to={`/player/${card.id}`} className='card relative flex-none' ref={cardsRef} key={index}>
-            <img 
-              src={card.backdrop_path 
-                ? `https://image.tmdb.org/t/p/w500${card.backdrop_path}` 
-                : '/background_banner.jpg'
-              } 
-              alt={card.original_title} 
-              className="w-[240px] rounded-[4px] cursor-pointer" 
-            />
-            <p className='absolute bottom-[10px] right-[10px]'>{card.original_title}</p>
-          </Link>
-        })}
-      </div>  
+    <div className="mt-12 mb-8 px-4">
+  <h2 className="mb-4 text-xl font-semibold text-white">{title || 'Popular on Netflix'}</h2>
+
+  <div className=" card-list flex gap-4 overflow-x-auto scrollbar-hide snap-x scroll-smooth">
+      {apiData.map((card, index) => (
+        <Link
+          to={`/player/${card.id}`}
+          key={index}
+          className="relative flex-none w-[60%] sm:w-[45%] md:w-[30%] lg:w-[22%] xl:w-[18%] snap-start"
+        >
+          <img
+            src={card.backdrop_path
+              ? `https://image.tmdb.org/t/p/w500${card.backdrop_path}`
+              : '/background_banner.jpg'}
+            alt={card.original_title}
+            className="w-full h-auto rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+          />
+          <p className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded-md">
+            {card.original_title}
+          </p>
+        </Link>
+      ))}
     </div>
+  </div>
+
   )
 }
 
