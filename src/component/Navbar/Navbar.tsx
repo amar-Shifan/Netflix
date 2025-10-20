@@ -24,6 +24,7 @@ const Navbar = () => {
       }
     })
   },[])
+  
   return (
     <div ref={navbar} className="navbar w-full p-5 lg:p-[20px_70px] flex justify-between fixed  bg-opacity-80 text-[14px] text-slate-100 z-50 top-0 left-0 right-0">
       {/* Left Section */}
